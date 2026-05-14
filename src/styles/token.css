@@ -1,0 +1,80 @@
+:root {
+    
+    /* Primary color*/
+    --primary-950: #4DB100;
+    --primary-900: #55B40C;
+    --primary-800: #67BC26;
+    --primary-700: #79C43F;
+    --primary-600: #8BCC59;
+    --primary-500: #9DD472;
+    --primary-400: #AEDB8C;
+    --primary-300: #C0E3A5;
+    --primary-200: #D2EBBF;
+    --primary-100: #EAF3D8;
+    --primary-50: #F6FBF2;
+
+    /* Secundary color*/
+    --secundary-950:#FED638;
+    --secundary-900:#FED841;
+    --secundary-800:#FEDC55;
+    --secundary-700:#FEE069;
+    --secundary-600:#FEE47D;
+    --secundary-500:#FEE891;
+    --secundary-400:#FEECA5;
+    --secundary-300:#FEF0B9;
+    --secundary-200:#FEF4CD;
+    --secundary-100:#FEF8E1;
+    --secundary-50:#FEFCF5;
+
+    /* Tertiary-2 color*/
+    --tertiary-950:#50E5F9;
+    --tertiary-900:#58E6F9;
+    --tertiary-800:#6AE8F9;
+    --tertiary-700:#7BEBFA;
+    --tertiary-600:#8DEEFB;
+    --tertiary-500:#9EF0FB;
+    --tertiary-400:#B0F3FC;
+    --tertiary-300:#C1F5FC;
+    --tertiary-200:#D3F8FD;
+    --tertiary-100:#E4FBFE;
+    --tertiary-50:#F6FDFE;
+
+    /* Basic color*/
+    --white: #fff;
+    --black: #000;
+    --gray-950: #101010;
+    --gray-900: #262626;
+    --gray-800: #3B3B3B;
+    --gray-700: #515151;
+    --gray-600: #676767;
+    --gray-500: #7D7D7D;
+    --gray-400: #929292;
+    --gray-300: #A8A8A8;
+    --gray-200: #BEBEBE;
+    --gray-100: #D4D4D4;
+    --gray-50: #E9E9E9;
+
+    /* Font-family */
+    --main-font: Helvetica, Arial, sans-serif;
+    --main2-font: 'Archivo Black', sans-serif;
+    --accent-font: 'Oswald', sans-serif;
+    --body-font: 'Montserrat', sans-serif;
+
+    /* Font  Weight crudos */
+    --font-weight-light: 300;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    /* Font-size00 */
+    --fs-xxxxl: 5rem; /* Ultra grande */
+    --fs-xxxl: 4rem; /* Super grande */
+    --fs-xxl: 3rem; /* Ultra grande */
+    --fs-xl: 2.5rem; /* Ultra grande */
+    --fs-lg: 2rem; /* Ultra grande */
+    --fs-md: 1.5rem; /* Ultra grande */
+    --fs-sm: 1.25rem; /* Ultra grande */
+    --fs-xs: 1rem; /* Ultra grande */
+    --fs-xxs: 5rem; /* Ultra grande */
+    --fs-xxxs: 5rem; /* Ultra grande */
+    --fs-xxxxs: 5rem; /* Ultra grande */
+}
