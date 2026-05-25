@@ -1,9 +1,7 @@
-export default function App () {
-  return (
-    <div className="min-h-screen bg-green-800 flex items-center justify-center">
-      <h1 className="text-white text-4xl font-bold">
-        Con David Tailwind V4 funciona full...
-      </h1>
-    </div>
-  )
+
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }
