@@ -4,3 +4,4 @@ export { default as DashboardLayout } from "./layouts/DashboardLayout";
 
 // Components
 export { default as Input } from "./components/Input";
+export { default as Button } from "./components/Button";
