@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import authBg from "@/assets/images/bg-1.png";
 import { Input } from "@/shared";
 import { Button } from "@/shared";
+import DeleteCounter2 from "../components/DeleteCounter2";
 
 
 export default function AuthLayout() {
@@ -72,6 +73,13 @@ export default function AuthLayout() {
                         >
                         Guardar
                         </Button>
+                    </div> {/* Actions */}
+
+                    {/* Implementacion del estado useState */}
+
+                    <div className="mt-10">
+
+                    <DeleteCounter2 />
                     </div>
                     
                     <h1>Ome que mas</h1>
