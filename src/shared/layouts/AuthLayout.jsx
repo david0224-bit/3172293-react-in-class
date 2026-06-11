@@ -1,11 +1,29 @@
+import {useState, useEffect} from "react";
+
 import { Outlet } from "react-router-dom";
 import authBg from "@/assets/images/bg-1.png";
-import { Input } from "@/shared";
-import { Button } from "@/shared";
+import {
+    Input,
+    Button,
+    EffectDemo,
+    Select,
+    Checkbox } from "@/shared";
+
 import DeleteCounter2 from "../components/DeleteCounter2";
+import { getDocumentTypes } from "../../services/selectServices";
+
 
 
 export default function AuthLayout() {
+
+    //Estado para los tipos de documento
+    const [documentTypes, setDocumentTypes] = useState ([])
+
+    // Uso del estado useEffect
+    useEffect (() => {
+        getDocumentTypes().then(setDocumentTypes);
+    },[])
+
     return (
         <>
             <div
@@ -16,7 +34,7 @@ export default function AuthLayout() {
                     backgroundPosition: "center",
                 }}
             >
-                <main className="mx-auto">
+                <main className="mx-auto ml-12">
                     <Input
                         label = "Nombre"
                         type="text" 
@@ -55,7 +73,7 @@ export default function AuthLayout() {
                     />
 
                         {/* Actions */}
-                    <div className= "flex gap-6 items-center">
+                    <div className= "flex gap-6 items-center mt-2">
                         <Button
                             variant = "secondary"
                             size = "sm"
@@ -77,12 +95,27 @@ export default function AuthLayout() {
 
                     {/* Implementacion del estado useState */}
 
-                    <div className="mt-10">
-
+                    {/* <div className="mt-10">
+                        <h1>Ejemplo sin useState</h1>
                     <DeleteCounter2 />
                     </div>
                     
-                    <h1>Ome que mas</h1>
+                    <h1>Ome que mas</h1> */}
+
+                    {/* Implemenetacion de useEffect */}
+                    {/* <div className="mt-12">
+                        <EffectDemo/>
+                    </div> */}
+
+                    {/* <CounterEffect/> */}
+
+                    {/* <Select
+                        label="Tipos de documento"
+                        name="userDocumentTypes"
+                        htmlFor="userDocumentTypes"
+                        options={documentTypes}
+                    /> */}
+
                     <Outlet />
                 </main>
                 </div>
