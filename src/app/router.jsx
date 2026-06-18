@@ -20,7 +20,7 @@ const router = createBrowserRouter ([
         path: "/dashboard",
         element: <DashboardLayout/>,
         children: [
-            { index: true, element: <h1>Este es el dashboard</h1> },
+            { index: true, },
             // { index: "/dashboard/auth", element: <h1>Hello2</h1>},
             // { index: "/dashboard/userList", element: <h1>Hello3</h1>},
         ],    

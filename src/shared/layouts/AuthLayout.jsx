@@ -5,11 +5,9 @@ import authBg from "@/assets/images/bg-1.png";
 import {
     Input,
     Button,
-    EffectDemo,
     Select,
     Checkbox } from "@/shared";
 
-import DeleteCounter2 from "../components/DeleteCounter2";
 import { getDocumentTypes } from "../../services/selectServices";
 
 
@@ -59,9 +57,9 @@ export default function AuthLayout() {
                     />
 
                     <Input
-                        label = "Borrar tipo de documento"
+                        label = "Tipo de documento"
                         type="text" 
-                        placeholder= "Escribe tu nombre"
+                        placeholder= "Ingrese su numero de documento"
                         htmlFor = "user"
                     />
 
@@ -87,36 +85,22 @@ export default function AuthLayout() {
                             variant = "primary"
                             size = "md"
                             type = "submit"
-                            onClick={() => console.log("Se oprimio el boton guardar")}
+                            // onClick={() => console.log("Se oprimio el boton guardar")}
                         >
                         Guardar
                         </Button>
                     </div> {/* Actions */}
 
-                    {/* Implementacion del estado useState */}
-
-                    {/* <div className="mt-10">
-                        <h1>Ejemplo sin useState</h1>
-                    <DeleteCounter2 />
-                    </div>
                     
-                    <h1>Ome que mas</h1> */}
 
-                    {/* Implemenetacion de useEffect */}
-                    {/* <div className="mt-12">
-                        <EffectDemo/>
-                    </div> */}
-
-                    {/* <CounterEffect/> */}
-
-                    {/* <Select
+                    <Select
                         label="Tipos de documento"
                         name="userDocumentTypes"
                         htmlFor="userDocumentTypes"
                         options={documentTypes}
-                    /> */}
+                    />
 
-                    <Outlet />
+                    <Outlet/>
                 </main>
                 </div>
         </>
