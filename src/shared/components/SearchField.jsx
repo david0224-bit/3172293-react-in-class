@@ -76,9 +76,9 @@ const SearchField = forwardRef(
                 )}
             >
                 {loading ? (
-                    <LoaderCircle className="size-4 shrink-0 animate-spin text-neutral-500" />
+                    <LoaderCircle className="size-4 shrink-0 text-neutral-500" />
                 ) : (
-                    <SearchIcon className="size-4 shrink-0 animate-spin text-neutral-500"/>
+                    <SearchIcon className="size-4 shrink-0 text-neutral-500"/>
                 )}
 
                 <input

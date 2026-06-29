@@ -1,6 +1,10 @@
 // src/app/router.jsx
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { AuthLayout, DashboardLayout } from "@/shared";
+// import UserListPage from "../features/users/pages/UserListPage";
+import UserListPage  from "../features/users/pages/UserListPage";
+import { UserRegisterForm } from "../features/users";
+
 
 const router = createBrowserRouter ([
     {
@@ -18,13 +22,15 @@ const router = createBrowserRouter ([
     },
     {
         path: "/dashboard",
-        element: <DashboardLayout/>,
+        element: <DashboardLayout />,
         children: [
-            { index: true, },
-            // { index: "/dashboard/auth", element: <h1>Hello2</h1>},
-            // { index: "/dashboard/userList", element: <h1>Hello3</h1>},
-        ],    
+            { index: true },
+            { path: "usersList", element: <UserListPage /> },
+            { path: "usersCreate", element: <UserRegisterForm  /> },
+            { path: "usersReport", element: <UserRegisterForm  /> },
+        ],
     },
+
 ]);
 
 export default router;

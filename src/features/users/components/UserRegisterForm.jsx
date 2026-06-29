@@ -6,10 +6,11 @@ import {
     Select,
     Checkbox,
     Button,
-    IconButton } from "@/shared";
+    } from "@/shared";
 import { getDocumentTypes } from "@/services/selectServices";
 // import { useNavigate } from "react-router-dom";
 import { userSchema } from "../schemas/userSchema";
+import { Pencil, ArrowDown } from "lucide-react"
 
 export default function UserRegisterForm (){
 
@@ -63,8 +64,7 @@ export default function UserRegisterForm (){
     // Uso del estado useEffect
     useEffect (() => {
         getDocumentTypes().then(setDocumentTypes)
-
-    })
+    }, [])
 
     //=====================================
     //           Handle submit
@@ -129,7 +129,7 @@ export default function UserRegisterForm (){
     //     }
     // };
 
-    
+
 
     return (
         <div className="grid items-center justify-center">
@@ -250,9 +250,13 @@ export default function UserRegisterForm (){
                     onClick= {() => console.log("Se oprimio el boton")}
                 >
                     Guardar
-                </Button>                
+                </Button>
 
             </div>
+                {/* Icono */}
+                <ArrowDown/>
+                <Pencil/>
+
         </form>
         </div>
     )
