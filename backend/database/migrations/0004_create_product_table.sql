@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS products (
+    id SERIAL PRIMARY KEY,
+    product_name VARCHAR(100) NOT NULL,
+    product_category VARCHAR(100) NOT NULL,
+    product_price NUMERIC(12, 2) NOT NULL,
+    product_description TEXT,
+    product_code VARCHAR(50) UNIQUE NOT NULL,
+    product_supplier_names VARCHAR(150),
+    product_quantity INTEGER DEFAULT 0,
+    shipping_date DATE,
+    nuevo BOOLEAN DEFAULT FALSE,
+    incluido BOOLEAN DEFAULT FALSE,
+    agotable BOOLEAN DEFAULT FALSE,
+    oferta BOOLEAN DEFAULT FALSE,
+    envio BOOLEAN DEFAULT FALSE,
+    activo BOOLEAN DEFAULT TRUE,
+    destacado BOOLEAN DEFAULT FALSE,
+    importado BOOLEAN DEFAULT FALSE,
+    devoluciones BOOLEAN DEFAULT FALSE,
+    product_image TEXT,
+    created_at TIMESTAMP DEFAULT NOW()
+);

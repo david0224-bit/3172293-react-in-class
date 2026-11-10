@@ -1,36 +1,68 @@
-// backend/src/features/users/user.service.js
+import bcrypt from "bcrypt";
+// El service es la capa donde vive la logica del negocio
+
+// Importamos el repositorio de usuarios.
+// El service depende del repository para acceder a la persistencia.
+
+// pero el repository NO debe conocer el service.
 import { userRepository } from "./user.repository.js";
-import bcrypt from "bcrypt"; 
 
+// Exportamos el servicio de usuarios.
+// El service representa la capa de lógica de negocio de la palicación.
 export const userService = {
-    async createUser(data) {
-        // 1. Extraemos la contraseña cruda sin importar qué formato envíe el frontend
-        const rawPassword = data.userPassword || data.user_password || data.password || data.contrasena;
 
-        if (!rawPassword) {
-            throw new Error("La contraseña es requerida para el registro");
+    // Método encargado de crear un usuario
+    // Recibe datos provinientes del controller,
+    // idealmente ya validados a nivel estructural (DTO / Schema)
+    async createUser(data) {
+
+    const hashedPassword = await bcrypt.hash(data.userPassword, 10);
+
+    const userData = {
+        ...data,
+        userPassword: hashedPassword,
+    };
+
+    console.log("SERVICE DATA:", userData);
+        // En este punto, en una arquitectura real, deberián, ocurrir:
+        // - Validaciones de reglas de negocio
+        // - Transformaciones de datos (ej: hash de password)
+        // - Verificaciones de unicidad (email, documento, etc.)
+        // - Decisiones de negocio (roles, flags, estados iniciales)
+
+        // Actualmente, el método solo delega directamente al repository,
+        // sin agregar ninguna lógica adicional
+        return await userRepository.create(userData);
+    },    
+
+        async getAllUsers() {
+        const users = await userRepository.findAll();
+        return users;
+    },
+
+    async updateUserStatus(id, is_active) { // Se declara la funcion que recibe dos parametros, id y el estado
+        // Se llama a la bd para actualizar el estado
+        const updated = await userRepository.updateStatus(id, is_active); // Le pasa los datos al repository
+        return updated; // Aqui regresa con los datos y se guardan en updated para entregarselos al controller
+    },
+
+
+    async updateUser(id, data) {
+
+        let hashedPassword = null;
+
+        if (
+            data.userPassword &&
+            data.userPassword.trim() !== ""
+        ) {
+            hashedPassword = await bcrypt.hash(data.userPassword, 10);
         }
 
-        // 2. Generamos el hash con bcrypt (10 rondas de salt)
-        const hashedPassword = await bcrypt.hash(rawPassword, 10); 
-
-        // 3. Mapeamos las propiedades asegurando camelCase para userRepository.js
-        const userData = { 
-            userName: data.userName || data.user_name || data.name,
-            userEmail: data.userEmail || data.user_email || data.email,
-            userPhone: data.userPhone || data.user_phone || data.phone,
-            userDocumentTypes: data.userDocumentTypes || data.user_document_types || data.documentType,
-            userDocumentNumber: data.userDocumentNumber || data.user_document_number || data.documentNumber,
-            userPassword: hashedPassword, // <- AQUÍ enviamos la contraseña ENCRIPTADA con la clave que lee el repo
-            userAvatarUrl: data.userAvatarUrl || data.user_avatar_url || data.avatarUrl || null,
-            isStaff: data.isStaff ?? data.is_staff ?? false,
-            isActive: data.isActive ?? data.is_active ?? true,
-            isSuperuser: data.isSuperuser ?? data.is_superuser ?? false
+        const userData = {
+            ...data,
+            userPassword: hashedPassword,
         };
 
-        console.log("DATOS MAPEADOS Y HASHEADOS ENVIADOS AL REPO:", userData);
-
-        // 4. Delegamos al repositorio la inserción en la BD
-        return await userRepository.create(userData);
+        return await userRepository.update(id, userData);
     },
 };

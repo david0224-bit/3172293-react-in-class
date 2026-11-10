@@ -1,59 +1,90 @@
-// src/features/users/schemas/userSchema.js
-// CORRECIÓN: agrgar campos booleanos
 
-import {z} from "zod";
+import { z } from "zod";
 import { fileSchema } from "@/shared/schemas/fileSchema";
 
-export const userSchema = z.object({
-   
+const passwordSchema = z
+  .string()
+  .min(8, "Contraseña debe tener mínimo 8 caracteres")
+  .regex(/[A-Z]/, "Debe contener al menos una mayúscula")
+  .regex(/[a-z]/, "Debe contener al menos una minúscula")
+  .regex(/[0-9]/, "Debe contener al menos un número")
+  .regex(/[^A-Za-z0-9]/, "Debe contener al menos un carácter especial");
 
-    userName: z
-        .string()
-        .min(3, "El nombre debe de tener minimo 3 caracteres")
-        .max(60, "El nombre es demasiado largo"),
+const userFields = {
+  userName: z
+    .string()
+    .min(3, "El nombre debe tener mínimo 3 caracteres")
+    .max(60, "El nombre es demasiado largo"),
 
-    userEmail: z
-        .email()
-        .regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Debe ingresar un email valido"),
+  userEmail: z
+    .string()
+    .email("Debe ingresar un email válido"),
 
-    userPhone: z
-        .string()
-        .regex(/^\d{10}$/, "El número de teléfono debe tener 10 dígitos"),
+  confirmEmail: z
+    .string()
+    .email("Debe ingresar un email válido"),
 
-    userDocumentTypes: z.string().min(1, "El tipo de documento es requerido"),
+  userPhone: z
+    .string()
+    .regex(/^[0-9]{10}$/, "El teléfono debe tener 10 dígitos"),
 
-    userDocumentNumber: z
-        .string()
-        .min(5, "El número de documento debe tener al menos 5 caracteres")
-        .max(20, "El número de documento es demasiado largo"),
+  userAddress: z
+    .string()
+    .min(5, "La dirección debe tener mínimo 5 caracteres")
+    .max(100, "La dirección es demasiado larga"),
 
-    userPassword: z
-        .string()
-        .min(8, "La contraseña debe tener al menos 8 caracteres")
-        .regex(/[A-Z]/, "La contraseña debe tener al menos una letra mayúscula")
-        .regex(/[a-z]/, "Debe contener al menos una letra minúscula")
-        .regex(/[0-9]/, "Debe contener al menos un número")
-        .regex(/[^A-Za-z0-9]/, "Debe contener al menos un caracter especial"),
+  userDocumentTypes: z
+    .string()
+    .min(1, "Debe seleccionar un tipo de documento"),
 
-    // userImage: fileSchema.shape.files.optional(),
-    // userImage: fileSchema.pick({ files: true }).shape.files.optional(),
+  userDocumentNumber: z
+    .string()
+    .min(5, "Número de documento inválido")
+    .max(20, "Número de documento demasiado largo"),
 
-    // La imagen es opcional: se acepta lista vacía y se normaliza a undefined.
-  // Sin este preprocess, [] entra al array interno y falla el .min(1) del fileSchema.
-    userImage: z.preprocess(
-    (value) => (Array.isArray(value) && value.length === 0 ? undefined : value),
-    fileSchema.shape.files.optional(),
-    ),
+  userPassword: passwordSchema,
 
+  isStaff: z.boolean(),
+  isActive: z.boolean(),
+  isSuperUser: z.boolean(),
 
-    userAvatarUrl: z
-        .string()
-        .url("La URL del avatar no es válida")
-        .nullable()
-        .optional(),
+  userImage: fileSchema.shape.files.optional(),
+};
 
-    isStaff: z.boolean(),
-    isActive: z.boolean(),
-    isSuperUser: z.boolean(),
+export const userSchema = z
+  .object(userFields)
+  .refine(
+    (data) => data.userEmail === data.confirmEmail,
+    {
+      message: "Los correos electrónicos no coinciden",
+      path: ["confirmEmail"],
+    }
+  );
 
-});
+export const userUpdateSchema = z
+  .object({
+    ...userFields,
+    userPassword: z.string(),
+  })
+  .superRefine((data, ctx) => {
+    if (data.userEmail !== data.confirmEmail) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Los correos electrónicos no coinciden",
+        path: ["confirmEmail"],
+      });
+    }
+
+    if (data.userPassword !== "") {
+      const passwordResult = passwordSchema.safeParse(data.userPassword);
+
+      if (!passwordResult.success) {
+        passwordResult.error.issues.forEach((issue) => {
+          ctx.addIssue({
+            ...issue,
+            path: ["userPassword"],
+          });
+        });
+      }
+    }
+  });

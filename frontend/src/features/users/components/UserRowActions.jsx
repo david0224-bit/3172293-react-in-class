@@ -1,55 +1,84 @@
-// src/features/users/components/UserRowActions.jsx
-
-// Iconos usoados en los botones de actiones
-import { Pencil, Trash2 } from "lucide-react";
-
-// Hook de React Router para navegar programáticamente entre rutas
+import { Pencil, Trash2, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import {
+  showConfirmDeleteAlert,
+  showCancelDeleteAlert,
+  showSuccessAlert,
+} from "@/shared";
 
-// Componente que renderiza las acciones de cada fila de susarios
-// Recibe como prop el objeto yser
 export default function UserRowActions({ user }) {
-    
-    // const handleEdit = () {
-    //      console.log("Editar usuario", user.id);
-    // };
 
-    // Hook que permite redirigir a otra ruta desde código
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    // Acción para editar el usuario
-    //Redirige a la página de edición usando el id del usuario
-    const handleEdit = () => {
-        navigate(`/users/${user.id}/edit`);
-    };
+  // Editar usuario
+  const handleEdit = () => {
+    navigate(`/UpdateUser/${user.id}`);
+  };
 
-    // Acción para eliminar el usuario
-    // Actualmente solo imprime en consola el id
-    // En una aplicación real aqui se llamaria a la API
-    const handleDelete = () => {
-        console.log("Eliminar usuario", user.id);
-    };
+  // Eliminar usuario
+  const handleDelete = async () => {
 
-    return (
-        // Contenedor de los botones de acciones
-        <div className="flex gap-2">
+    const result = await showConfirmDeleteAlert({
+      title: "¿Eliminar usuario?",
+      text: `¿Estás seguro de eliminar al usuario ${user.user_name}?`,
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "No, cancelar",
+    });
 
-            {/*Botón editar */}
-            <button
-                onClick={handleEdit} // Ejecuta la navegaciín a la página de edición
-                
-                className="p-1 rounded hover:bg-gray-100"
-            >
-                <Pencil size={16} /> {/*Icono de editar*/}
-            </button>
+    if (result.isConfirmed) {
 
-            {/*Botón eliminar*/}
-            <button
-                onClick={handleDelete} // Ejecuta la acción de eliminación
-                className="p-1 rounded hover:bg-gray-100"
-            >
-                <Trash2 size={16} /> {/*Icono de eliminar*/}
-            </button>
-        </div>
-    )
+      console.log("Eliminar usuario", user.id);
+
+      await showSuccessAlert({
+        title: "Usuario eliminado",
+        text: "El usuario se eliminó correctamente.",
+        confirmButtonText: "Aceptar",
+      });
+
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+      await showCancelDeleteAlert({
+        title: "Eliminación cancelada",
+        text: "El usuario no fue eliminado.",
+        confirmButtonText: "Aceptar",
+      });
+
+    }
+  };
+
+  // Ver usuario
+  const handleView = () => {
+    navigate(`/dashboard/userRead/${user.id}`);
+  };
+
+  return (
+    <div className="flex gap-2">
+
+      {/* Editar */}
+      <button
+        onClick={handleEdit}
+        className="p-1 rounded hover:bg-gray-100"
+      >
+        <Pencil size={16} />
+      </button>
+
+      {/* Eliminar */}
+      <button
+        onClick={handleDelete}
+        className="p-1 rounded hover:bg-gray-100"
+      >
+        <Trash2 size={16} />
+      </button>
+
+      {/* Ver */}
+      <button
+        onClick={handleView}
+        className="p-1 rounded hover:bg-gray-100"
+      >
+        <Eye size={16} />
+      </button>
+
+    </div>
+  );
 }

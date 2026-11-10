@@ -1,70 +1,155 @@
-// Importamos el pool de conexión a PostgreSQL.
-// Este pool es una instancia compartida configurada en la capa de infaestrcutura.
+
 import { pool } from "../../config/db.js";
 
-// Exportamos el repositorio de usuarios
-// El repositorio encapsula todas las consultas SQL relacionadas con users.
 export const userRepository = {
 
-    // Metodo encargado de crear un nuevo usuario en la base de datos
-    // recibe un objeto con los datos ya validados y procesados por el service
     async create(userData) {
 
-        // Desustructuramos explícitamente las propiedades esperadas
-        // Esto hace el contrato de dstos claro y evita acceder a propiedades inexistentes
-        const{
+        const {
             userName,
             userEmail,
+            confirmEmail,
             userPhone,
+            userAddress,
             userDocumentTypes,
             userDocumentNumber,
             userPassword,
-            userAvatarUrl,
+            userImage,
             isStaff,
-            isActive, 
-            isSuperuser,
-        } =  userData;
+            isActive,
+            isSuperUser,
+        } = userData;
 
-            // Usar placeholder ($1,$2,...)previene inyecciones sql
-            // RETURNING permite obtener datos generado por la bases de datos (id)
         const query = `
-            INSERT INTO  users (
+            INSERT INTO users (
                 user_name,
                 user_email,
+                confirm_email,
                 user_phone,
+                user_address,
                 user_document_types,
                 user_document_number,
                 user_password,
-                user_avatar_url,
+                user_image,
                 is_staff,
                 is_active,
                 is_superuser
-            ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
+            )
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
             RETURNING id;
         `;
 
-        // Array de valores que se pasan al query
-        // El orden debe coincidir con los placeholders en la consulta SQL
         const values = [
             userName,
             userEmail,
+            confirmEmail,
             userPhone,
+            userAddress,
             userDocumentTypes,
             userDocumentNumber,
             userPassword,
-            userAvatarUrl,
+            userImage,
             isStaff,
-            isActive, 
-            isSuperuser,
+            isActive,
+            isSuperUser,
         ];
 
-        // Ejecutamos la consulta usando el pool
-        // pool.query retorna u objeto en metadata y filas resultantes
         const result = await pool.query(query, values);
 
-        // devolvemos únicamente el primer registro retornado
-        // En este caso contiene el id del usuario recien creado
         return result.rows[0];
-
     },
-  }
+
+    async findAll() {
+
+        const query = `
+            SELECT *
+            FROM users
+            ORDER BY id ASC;
+        `;
+
+        const result = await pool.query(query);
+
+        return result.rows;
+    },
+
+    async update(id, userData) {
+
+        const {
+            userName,
+            userEmail,
+            confirmEmail,
+            userPhone,
+            userAddress,
+            userDocumentTypes,
+            userDocumentNumber,
+            userPassword,
+            isStaff,
+            isActive,
+            isSuperUser,
+        } = userData;
+
+        const query = `
+            UPDATE users
+            SET
+                user_name = $1,
+                user_email = $2,
+                confirm_email = $3,
+                user_phone = $4,
+                user_address = $5,
+                user_document_types = $6,
+                user_document_number = $7,
+                user_password = COALESCE($8, user_password),
+                is_staff = $9,
+                is_active = $10,
+                is_superuser = $11
+            WHERE id = $12
+            RETURNING
+                id,
+                user_name,
+                user_email,
+                confirm_email,
+                user_phone,
+                user_address,
+                user_document_types,
+                user_document_number,
+                is_staff,
+                is_active,
+                is_superuser;
+        `;
+
+        const values = [
+            userName,
+            userEmail,
+            confirmEmail,
+            userPhone,
+            userAddress,
+            userDocumentTypes,
+            userDocumentNumber,
+            userPassword,
+            isStaff,
+            isActive,
+            isSuperUser,
+            id,
+        ];
+
+        const result = await pool.query(query, values);
+
+        return result.rows[0];
+    },
+
+    async updateStatus(id, is_active) {
+
+        const query = `
+            UPDATE users
+            SET is_active = $1
+            WHERE id = $2
+            RETURNING *;
+        `;
+
+        const values = [is_active, id];
+
+        const result = await pool.query(query, values);
+
+        return result.rows[0];
+    },
+};

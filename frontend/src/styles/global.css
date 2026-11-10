@@ -2,6 +2,9 @@
 @import url(semantic.css);
 @import "tailwindcss"; /*Esta linea debe quedar al final para que funcione*/
 
+/* Las utilidades dark: siguen la clase .dark que aplica ThemeProvider */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
     /* ========Brand========= */
 
@@ -12,7 +15,7 @@
 
     /* ========Background========= */
 
-    --color-backgroung: var(--semantic-background);
+    --color-background: var(--semantic-background);
     --color-surface: var(--semantic-surface);
     --color-surface-muted: var(--semantic-surface-muted);
     --color-background-inverse: var(--semantic-background-inverse);
@@ -32,6 +35,7 @@
     /* ========Focus========= */
 
     --color-focus-ring: var(--semantic-focus-ring);
+    --color-focus-border: var(--semantic-focus-border);
     --color-focus-border: var(--semantic-focus-border);
 
     /* ========State========= */

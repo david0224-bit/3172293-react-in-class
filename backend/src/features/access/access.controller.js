@@ -1,20 +1,24 @@
+// backend/src/features/access/access.controller.js
+// CORRECCIÓN: obtener usuario desde JWT
+
+
 import { accessService } from "./access.service.js";
 
 
 export const accessController = {
   async testPermission(req, res) {
-    const userId = Number(req.params.userId);
+    const userId = req.user.id;
 
-
+    const permissionCode = req.params.permissionCode;
+    
     const hasPermission = await accessService.hasPermission(
       userId,
-      "list_user",
+      permissionCode,
     );
-
 
     res.json({
       userId,
-      permission: "list_user",
+      permission: permissionCode,
       granted: hasPermission,
     });
   },

@@ -1,0 +1,22 @@
+[
+    {
+        "id":"PROV1",
+        "label":"Yupi"
+    },
+    {
+        "id":"PROV2",
+        "label":"Nestle"
+    },
+    {
+        "id":"PROV3",
+        "label":"Alpina"
+    },
+    {
+        "id":"PROV4",
+        "label":"Postobon"
+    },
+    {
+        "id":"PROV5",
+        "label":"Colombina"
+    }
+]
