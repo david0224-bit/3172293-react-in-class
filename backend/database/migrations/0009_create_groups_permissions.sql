@@ -1,4 +1,5 @@
---database/migrations/create_group_permissions.sql
+-- database/migrations/create_group_permissions.sql
+
 CREATE TABLE group_permissions (
     group_id INTEGER NOT NULL,
     permission_id INTEGER NOT NULL,
@@ -9,7 +10,7 @@ CREATE TABLE group_permissions (
         FOREIGN KEY (group_id)
         REFERENCES groups(group_id)
         ON DELETE CASCADE,
-    
+
     CONSTRAINT fk_group_permissions_permission
         FOREIGN KEY (permission_id)
         REFERENCES permissions(permission_id)

@@ -12,7 +12,7 @@ CREATE TABLE user_groups (
         ON DELETE CASCADE,
 
     CONSTRAINT fk_user_groups_group
-    FOREIGN KEY (group_id)
-    REFERENCES groups (group_id)
-    ON DELETE CASCADE
-);
+        FOREIGN KEY (group_id)
+        REFERENCES groups(group_id)
+        ON DELETE CASCADE
+); 
