@@ -2,6 +2,7 @@ export default function Checkbox({
     id,                   //Identificador unico (necesario para accesisibilidad)
     name,                 //Nombre del campo (util para formulario)
     label,                //Texto visible asociado al checkbox
+    value,
     checked = false,      //Estado controlado del checkbox
     onChange,             //Funcion que maneja el cambio de estado
     disabled = false,     //Indica si el checkbox esta habilitado
@@ -26,6 +27,7 @@ export default function Checkbox({
                 id={id}
                 name={name}
                 type="checkbox"
+                value={value}
                 checked={checked}
                 disabled={disabled}
                 onChange={onChange}

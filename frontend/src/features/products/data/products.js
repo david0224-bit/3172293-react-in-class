@@ -1,39 +1,39 @@
-import laptop from "@/assets/images/card-laptop.png";
-import monitor from "@/assets/images/card-monitor.png";
-import mouse from "@/assets/images/card-mouse.png";
-import teclado from "@/assets/images/card-teclado.png";
+import Cafe from "@/assets/images/cafe-americano.png";
+import TortaChocolate from "@/assets/images/tortadeChocolate.png";
+import Capuccino from "@/assets/images/capucchino.png";
+import Croissant from "@/assets/images/criossant.png";
 
 export const products = [
   {
     id: 1,
-    title: "Laptop Profesional",
-    price: 3500000,
-    description: "Laptop de alto rendimiento para desarrollo y diseño.",
-    image: laptop,
-    category: "perifericos"
+    title: "Café Americano",
+    price: 3500,
+    description: "Café negro preparado con granos 100% colombianos.",
+    image: Cafe,
+    category: "bebidas"
   },
   {
     id: 2,
-    title: "Monitor 27 Pulgadas",
-    price: 1200000,
-    description: "Monitor IPS ideal para programación y edición.",
-    image: monitor,
-    category: "perifericos"
+    title: "Torta de Chocolate",
+    price: 8500,
+    description: "Porción de torta de chocolate con cobertura de cacao.",
+    image: TortaChocolate,
+    category: "postres"
   },
   {
     id: 3,
-    title: "Mouse",
-    price: 80000,
-    description: "Mouse ergonómico, la mejor calidad y precio.",
-    image: mouse,
-    category: "perifericos"
+    title: "Capuccino",
+    price: 7000,
+    description: "Café espresso con leche vaporizada y espuma cremosa.",
+    image: Capuccino,
+    category: "bebidas"
   },
   {
     id: 4,
-    title: "Teclado Gamer",
-    price: 50000,
-    description: "Teclado mecánico con iluminación RGB.",
-    image: teclado,
-    category: "perifericos"
+    title: "Croissant de Jamón y Queso",
+    price: 9000,
+    description: "Croissant horneado relleno de jamón y queso mozzarella.",
+    image: Croissant,
+    category: "panadería"
   }
 ];

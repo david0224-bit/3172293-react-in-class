@@ -21,8 +21,8 @@ export const users = [
     },
     {
         id: 3,
-        userName: "Mariana Silva",
-        userEmail: "mariana.silva@example.com",
+        userName: "David Suarez Valencia",
+        userEmail: "david.suarez@example.com",
         userPhone: "3007654321",
         userDocumentTypes: "CC",
         userDocumentNumber: "1002345678",
@@ -30,20 +30,20 @@ export const users = [
     },
     {
         id: 4,
-        userName: "Ricardo Castro",
-        userEmail: "ricardo.castro@example.com",
+        userName: "Nicolas Echeverry",
+        userEmail: "Nicoconuna16@example.com",
         userPhone: "3129876543",
-        userDocumentTypes: "TI",
+        userDocumentTypes: "CC",
         userDocumentNumber: "1054321098",
         isActive: true
     },
     {
         id: 5,
-        userName: "Valeria Mendoza",
-        userEmail: "valeria.mendoza@example.com",
+        userName: "Maycol silva",
+        userEmail: "maysilva@example.com",
         userPhone: "3204561234",
-        userDocumentTypes: "PAS",
-        userDocumentNumber: "CO987654",
+        userDocumentTypes: "cc",
+        userDocumentNumber: "1089088940",
         isActive: true
     },
     {

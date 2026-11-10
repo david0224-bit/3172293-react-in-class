@@ -1,0 +1,1 @@
+export { default as SupplierListPage } from "./pages/SupplierListPage.jsx"

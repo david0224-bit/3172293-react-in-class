@@ -1,27 +1,31 @@
 // frontend/src/features/auth/services/authService.js
 // Consumir API login
-// 🤣🤣
-// const API_URL = "http://localhost:4000/api/auth";
 
-const API_URL = "http://localhost:4000/api/auth";
+import { API_URL } from "@/features/config";
+
+const AUTH_API_URL = `${API_URL}/auth`;
 
 export async function login(userData) {
-  const response = await fetch(`${API_URL}/login`, {
+  // Verificamos en consola qué datos están llegando desde el componente/formulario
+  console.log("Datos enviados al servicio de Login:", userData);
+
+  const response = await fetch(`${AUTH_API_URL}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: userData.userEmail,
-      password: userData.userPassword,
+      // Extraemos el valor soportando ambos nombres por si el formulario envía userEmail o email
+      email: userData.email || userData.userEmail,
+      password: userData.password || userData.userPassword,
     }),
   });
 
+  const data = await response.json();
+
   if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || "Error login");
+    throw new Error(data.error || "Error al iniciar sesión");
   }
 
-  return response.json();
+  return data;
 }
-

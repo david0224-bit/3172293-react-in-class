@@ -1,98 +1,30 @@
-import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import authBg from "@/assets/images/bg-1.png";
-import { Input, 
-         Button, 
-         Select, 
-         Checkbox } from "@/shared";
-import { getDocumentTypes } from "../../services/selectService";
+import { UserRegisterLogin } from "../../features/users";
 
 export default function AuthLayout() {
-
-  //Estado para los tipos de documentis
-  const [documentTypes, setDocumentTypes] = useState ([])
-
-  useEffect(() => {
-    getDocumentTypes().then(setDocumentTypes);
-  },[])
-
   return (
     <>
-      <div
-        className="min-h-screen w-full"
-        style={{
-          backgroundImage: `url(${authBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <main className="mx-auto">
-          <Input
-            label="Nombre"
-            type="text"
-            placeholder="Escribe tu nombre"
-            htmlFor= "user-name"
-            variant ="primary"
-            size ="lg"
-            />
-          <Input
-            label="Correo"
-            type="email"
-            placeholder="Escribe tu correo"
-            htmlFor= "user-email"
-            />
-          <Input
-            label="Telefono"
-            type="tel"
-            placeholder="Escribe tu número de telefono"
-            htmlFor= "user-phone"
-            />
-          <Input
-            label="Borrar tipo de documento"
-            type="text"
-            placeholder="Escribe tu nombre"
-            htmlFor= "name"
-            />
-          <Input
-            label="Documento"
-            type="text"
-            placeholder="Escribe tu número de documento"
-            htmlFor= "user-document-number"
-            />
-           <Select
-              label= "Tipos de documento"
-              name="userDocumentTypes"
-              htmlFor="userDocumentTypes"
-              options={documentTypes}
-            />
-            
-          <Checkbox/>
+      <div className="min-h-screen grid grid-cols-2">
 
-            <div className="flex gap-6 items-center" >
+        <div>
+          <img
+            src= {authBg}
+            alt="Restaurante"
+            className="w-full h-screen object-cover"
+          />
+        </div>
 
-               <Button
-                variant= "secondary"
-                size= "sm"
-                type= "button"
-                onClick={() => console.log("Se oprimio el cancelar")}
-              
-              >Cancelar
-              </Button>
+        <div className="bg-[var(--color-primary-50)] flex justify-center items-center">
+          <main>
 
-              <Button
-                variant= "primary"
-                size= "md"
-                type= "sumbit"
-                onClick={() => console.log("Se oprimio el submit")}
-              
-              >Guardar
-              </Button>
-            </div>
+            <UserRegisterLogin />
 
-            Implementacion del estado useState
+            <Outlet />
 
-          <Outlet />
-        </main>
+          </main>
+        </div>
+
       </div>
     </>
   );

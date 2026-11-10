@@ -1,0 +1,42 @@
+export const orders = [
+  {
+    id: 1,
+    tableNumber: 1,
+    waiter: "Jacobo Agudelo López",
+    status: "Abierta",
+    date: "2026-08-09",
+    total: 56000,
+  },
+  {
+    id: 2,
+    tableNumber: 3,
+    waiter: "David Suarez Valencia",
+    status: "Lista para entrega",
+    date: "2026-08-08",
+    total: 17500,
+  },
+  {
+    id: 3,
+    tableNumber: 5,
+    waiter: "Sergio Galvis Alzate",
+    status: "Pagada",
+    date: "2026-08-08",
+    total: 26500,
+  },
+  {
+    id: 4,
+    tableNumber: 2,
+    waiter: "Valentina Gañan Bueno",
+    status: "Cancelada",
+    date: "2026-08-07",
+    total: 9000,
+  },
+  {
+    id: 5,
+    tableNumber: 7,
+    waiter: "Jacobo Agudelo López",
+    status: "Abierta",
+    date: "2026-08-06",
+    total: 21000,
+  },
+];
