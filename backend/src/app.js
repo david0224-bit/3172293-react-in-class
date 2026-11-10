@@ -9,6 +9,8 @@ import cors from "cors";
 // Cada feature expone su propio router independiente
 import userRoutes from "./features/users/user.routes.js";
 import authRoutes from "./features/auth/auth.routes.js";
+// Ruta del modulo accesos
+import accessRoutes from "./features/access/access.routes.js";
 
 // Creamos la instancia principal de la aplicación Express
 const app = express();
@@ -27,6 +29,9 @@ app.use(express.json());
 // Ejemplo final: POST http://localhost:4000/api/users
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+// Modulo Acceso
+app.use("/api/access", accessRoutes);
+
 
 // Exportamos la aplicación configurada
 // El arranque del servidor se hace en server.js
