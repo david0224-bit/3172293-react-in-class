@@ -1,4 +1,4 @@
-# ☕ Coffee Flavor
+# ☕ Coffee Flavor in class
 
 Sistema web de gestión administrativa para una cafetería. Permite administrar **usuarios, proveedores, inventario, productos y pedidos** desde un panel centralizado, con inicio de sesión mediante JWT y control de acceso por **grupos y permisos**.
 
