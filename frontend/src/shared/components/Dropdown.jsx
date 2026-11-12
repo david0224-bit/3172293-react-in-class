@@ -88,6 +88,8 @@ export function DropdownContent({ children, className = "" }) {
       role="menu"
       className={`
         absolute
+        right-0
+        z-50
         mt-1
         min-w-48
         border

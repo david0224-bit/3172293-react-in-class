@@ -52,7 +52,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full border-b-2 border-border-strong bg-navbar text-text-primary backdrop-blur-sm">
+    <nav className="relative z-50 w-full border-b-2 border-border-strong bg-navbar text-text-primary backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between">
 
