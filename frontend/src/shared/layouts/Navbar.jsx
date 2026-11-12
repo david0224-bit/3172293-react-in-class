@@ -52,13 +52,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav
-  className={`w-full border-b-2 ${
-    theme === "dark"
-      ? "bg-black border-gray-800 text-white"
-      : "bg-white/70 backdrop-blur-sm"
-  }`}
->
+    <nav className="w-full border-b-2 border-border-strong bg-navbar text-text-primary backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between">
 
@@ -75,7 +69,7 @@ export default function Navbar() {
             <li>
               <Link
                 to={"/HomePage"}
-                className="hover:text-primary transition flex items-center gap-1.5"
+                className="hover:text-accent transition flex items-center gap-1.5"
               >
                 <House size={17} />
                 Inicio
@@ -85,7 +79,7 @@ export default function Navbar() {
             <li>
               <Link
                 to={"/dashboard/userList"}
-                className="hover:text-primary transition flex items-center gap-1.5"
+                className="hover:text-accent transition flex items-center gap-1.5"
               >
                 <Users size={17} />
                 Usuarios
@@ -95,7 +89,7 @@ export default function Navbar() {
             <li>
               <Link
                 to="/dashboard/access"
-                className="hover:text-primary transition flex items-center gap-1.5"
+                className="hover:text-accent transition flex items-center gap-1.5"
               >
                 <KeyRound size={17} />
                 Permisos
@@ -105,7 +99,7 @@ export default function Navbar() {
             <li>
               <Link
                 to={"/dashboard/readMenu"}
-                className="hover:text-primary transition flex items-center gap-1.5"
+                className="hover:text-accent transition flex items-center gap-1.5"
               >
                 <Utensils size={17} />
                 Menu

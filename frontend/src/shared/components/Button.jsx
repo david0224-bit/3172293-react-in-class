@@ -19,22 +19,22 @@ export default function Button({
 
         secondary: `
             bg-brand-soft
-            text-primary
+            text-text-primary
             hover:bg-brand-soft-hover
             dark:brightness-110
         `,
 
         cancel: `
             border
-            border-gray-400
-            text-gray-700
-            hover:bg-gray-100
+            border-border
+            text-text-secondary
+            hover:bg-surface-hover
         `,
 
         finish: `
-            bg-[var(--color-primary-950)]
-            hover:bg-[var(--color-primary-900)]
-            text-white
+            bg-accent
+            hover:bg-accent-hover
+            text-on-accent
             shadow-md
             dark:brightness-125
         `,
@@ -42,9 +42,9 @@ export default function Button({
         back: `
             absolute
             top-2
-            bg-[var(--color-primary-950)]
-            text-white
-            hover:bg-[var(--color-primary-900)]
+            bg-accent
+            text-on-accent
+            hover:bg-accent-hover
         `,
     };
 

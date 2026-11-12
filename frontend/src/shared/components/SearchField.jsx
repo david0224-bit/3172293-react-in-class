@@ -16,10 +16,10 @@ const sizeStyles = {
 const variantStyles = {
     // Filled: campo con fondo relleno, brode mínimo o sutil (Material "Filled TextField")
     filled: 
-        "bg-neutral-100 border-blue-500 hover:border-blue-700 focus-within:bg-white",
+        "bg-field border-border hover:border-border-strong focus-within:bg-panel",
 
         // Outlined: campo con fondo transparente y borde visible siempre.
-    outlined: "bg-transparent border-green-500 hover:border-green-600",
+    outlined: "bg-transparent border-brand hover:border-accent",
 };
 
 const SearchField = forwardRef(
@@ -75,9 +75,9 @@ const SearchField = forwardRef(
                 )}
             >
                 {loading ? (
-                    <LoaderCircle className="size-4 shrink-0 animate-spin text-neutral-500" />
+                    <LoaderCircle className="size-4 shrink-0 animate-spin text-text-muted" />
                 ) : (
-                    <SearchIcon className="size-4 shrink-0 text-neutral-500" />
+                    <SearchIcon className="size-4 shrink-0 text-text-muted" />
                 )}
 
                 <input
@@ -90,7 +90,7 @@ const SearchField = forwardRef(
                 aria-label={ariaLabel}
                 autoComplete={autoComplete}
                 onChange={(e) => onChange(e.target.value)}
-                className="search__input flex-1 bg-transparent px-2 outline-none"
+                className="search__input flex-1 bg-transparent px-2 text-text-primary placeholder:text-text-muted outline-none"
                 />
 
                 {!!value && !disabled && (
@@ -98,9 +98,9 @@ const SearchField = forwardRef(
                         type="button"
                         onClick={handleClear}
                         aria-label="Limpiar búsqueda"
-                        className="search__clear rounded-full p-1 hover:bg-neutral-200"
+                        className="search__clear rounded-full p-1 hover:bg-surface-hover"
                     >
-                        <X className="size-4 text-neutral-500" />
+                        <X className="size-4 text-text-muted" />
                     </button>
                 )}
             </form>

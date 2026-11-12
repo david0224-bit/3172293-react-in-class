@@ -19,7 +19,7 @@ export default function SelectInventory({
                  className="
                     block
                     text-caption
-                    text-secondary
+                    text-text-secondary
                     "
                 >
                  {label}
@@ -37,12 +37,12 @@ export default function SelectInventory({
                     h-10
                     rounded-md
                     border-1
-                    border-[var(--gary-500)]
+                    border-border
                     px-4
-                    bg-[var(--color-primary-950)]
+                    bg-accent
 
                     hover:border-1
-                    hover:bg-[var(--color-primary-300)]
+                    hover:bg-brand-soft-hover
                     "
             >
 

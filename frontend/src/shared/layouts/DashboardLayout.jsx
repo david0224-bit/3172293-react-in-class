@@ -14,7 +14,7 @@ export default function DashboardLayout() {
           backgroundPosition: "center",
         }}
       >
-        <main className="mx-auto">
+        <main className="mx-auto min-h-screen bg-scrim">
             <Navbar />
             {/* <UserRegisterForm/> */}
           <Outlet />

@@ -1,11 +1,11 @@
 export default function DetailItem({ label, value }) {
   return (
-    <div className="flex justify-between items-center border-b border-gray-200 py-3">
-      <span className="font-semibold text-gray-700">
+    <div className="flex justify-between items-center border-b border-border py-3">
+      <span className="font-semibold text-text-secondary">
         {label}
       </span>
 
-      <span className="text-gray-600 text-right">
+      <span className="text-text-secondary text-right">
         {value}
       </span>
     </div>

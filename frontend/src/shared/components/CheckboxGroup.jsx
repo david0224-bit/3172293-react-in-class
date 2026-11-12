@@ -11,7 +11,7 @@ export default function CheckboxGroup({
   return (
     <div className="flex flex-col gap-3">
 
-      <label className="font-semibold text-gray-700">
+      <label className="font-semibold text-text-secondary">
         {label}
       </label>
 
