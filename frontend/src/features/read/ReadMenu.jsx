@@ -21,7 +21,7 @@ export default function ReadMenu() {
     <div className="min-h-screen flex flex-col font-sans">
       <div className="flex-1 p-6 flex justify-center items-center">
 
-        <div className="w-full max-w-7xl bg-gradient-to-b from-[var(--color-primary-800)] to-[var(--color-primary-200)] rounded-3xl shadow-lg p-8 relative">
+        <div className="w-full max-w-7xl bg-gradient-to-b from-form-from to-form-to rounded-3xl shadow-lg p-8 relative">
 
           <Button
             variant="back"
@@ -32,13 +32,13 @@ export default function ReadMenu() {
             ← Atrás
           </Button>
 
-          <div className="flex items-center gap-3 mt-8 mb-8 border-b border-[var(--color-primary-950)] pb-3">
+          <div className="flex items-center gap-3 mt-8 mb-8 border-b border-accent pb-3">
 
             <div className="text-4xl">
               🍽️
             </div>
 
-            <h2 className="text-2xl font-bold uppercase text-[var(--color-primary-950)]">
+            <h2 className="text-2xl font-bold uppercase text-accent">
               Información del Menú
             </h2>
 
@@ -58,10 +58,10 @@ export default function ReadMenu() {
 
                   <div
                     key={product.id}
-                    className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition"
+                    className="bg-panel rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition"
                   >
 
-                    <div className="h-40 bg-gray-100 flex items-center justify-center">
+                    <div className="h-40 bg-field flex items-center justify-center">
 
                       <img
                         src={product.image}
@@ -73,15 +73,15 @@ export default function ReadMenu() {
 
                     <div className="p-4">
 
-                      <h4 className="font-bold text-center text-gray-800">
+                      <h4 className="font-bold text-center text-text-primary">
                         {product.title}
                       </h4>
 
-                      <p className="text-center text-sm text-gray-500 mt-1">
+                      <p className="text-center text-sm text-text-muted mt-1">
                         {product.category}
                       </p>
 
-                      <p className="text-center text-lg font-bold text-[var(--color-primary-950)] mt-2">
+                      <p className="text-center text-lg font-bold text-accent mt-2">
                         ${product.price.toLocaleString()}
                       </p>
 
@@ -95,9 +95,9 @@ export default function ReadMenu() {
 
             </div>
 
-            <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div className="bg-panel rounded-3xl shadow-lg overflow-hidden">
 
-              <div className="flex justify-center bg-gray-100 p-6">
+              <div className="flex justify-center bg-field p-6">
 
                 <img
                   src={menu.menuImage}
@@ -109,11 +109,11 @@ export default function ReadMenu() {
 
               <div className="p-8">
 
-                <h2 className="text-3xl font-bold text-center text-gray-800">
+                <h2 className="text-3xl font-bold text-center text-text-primary">
                   {menu.menuName}
                 </h2>
 
-                <p className="text-center text-gray-600 mt-4 leading-relaxed">
+                <p className="text-center text-text-secondary mt-4 leading-relaxed">
                   {menu.menuDescription}
                 </p>
 
@@ -135,7 +135,7 @@ export default function ReadMenu() {
                     Estado
                   </span>
 
-                  <span className="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-accent text-on-accent px-4 py-1 rounded-full text-sm font-semibold">
                     {menu.menuStatus}
                   </span>
 

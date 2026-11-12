@@ -40,15 +40,15 @@ export default function InventoryListPage() {
       <div
         className="
           rounded-2xl
-          bg-white/80
+          bg-panel/80
           backdrop-blur-md
           shadow-lg
           p-6
-          border border-white/40
+          border border-panel/40
         "
       >
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-xl font-semibold text-gray-900">
+          <h1 className="text-xl font-semibold text-text-primary">
             Listado de inventario
           </h1>
 
@@ -70,7 +70,7 @@ export default function InventoryListPage() {
         </div>
 
         {loading ? (
-          <p className="text-center py-6 text-gray-600">
+          <p className="text-center py-6 text-text-secondary">
             Cargando inventario...
           </p>
         ) : error ? (

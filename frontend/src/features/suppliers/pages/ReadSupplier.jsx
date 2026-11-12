@@ -57,7 +57,7 @@ export default function ReadSupplier() {
 
     if (loading) {
         return (
-            <div className="flex justify-center items-center min-h-screen text-black">
+            <div className="flex justify-center items-center min-h-screen text-text-primary">
                 Cargando información del proveedor...
             </div>
         );
@@ -65,7 +65,7 @@ export default function ReadSupplier() {
 
     if (!supplier) {
         return (
-            <div className="flex flex-col justify-center items-center min-h-screen gap-4 text-black">
+            <div className="flex flex-col justify-center items-center min-h-screen gap-4 text-text-primary">
                 <p>No se encontró el proveedor con ID {id}.</p>
 
                 <Button
@@ -80,11 +80,11 @@ export default function ReadSupplier() {
     }
 
     return (
-        <div className="min-h-screen flex flex-col font-sans bg-white/80 backdrop-blur-md shadow-lg">
+        <div className="min-h-screen flex flex-col font-sans bg-panel/80 backdrop-blur-md shadow-lg">
 
             <div className="flex-1 p-6 flex justify-center items-center border">
 
-                <div className="w-full max-w-6xl bg-primary rounded-3xl shadow-lg p-8 relative text-black border-2 border-gray-400">
+                <div className="w-full max-w-6xl bg-primary rounded-3xl shadow-lg p-8 relative text-text-primary border-2 border-border">
 
                     <Button
                         size="sm"
@@ -94,13 +94,13 @@ export default function ReadSupplier() {
                         ← Atrás
                     </Button>
 
-                    <div className="flex items-center gap-3 mb-8 mt-8 border-b border-black pb-3">
+                    <div className="flex items-center gap-3 mb-8 mt-8 border-b border-border-strong pb-3">
 
                         <div className="text-4xl">
                             🏢
                         </div>
 
-                        <h2 className="text-2xl font-bold uppercase text-black">
+                        <h2 className="text-2xl font-bold uppercase text-text-primary">
                             Perfil de Proveedor
                         </h2>
 
@@ -110,23 +110,23 @@ export default function ReadSupplier() {
 
                         <div className="flex flex-col items-center">
 
-                            <div className="w-64 h-72 rounded-xl overflow-hidden border-4 border-white shadow-md flex items-center justify-center bg-gray-200">
+                            <div className="w-64 h-72 rounded-xl overflow-hidden border-4 border-panel shadow-md flex items-center justify-center bg-subtle">
 
-                                <span className="text-7xl font-bold text-gray-700 uppercase">
+                                <span className="text-7xl font-bold text-text-secondary uppercase">
                                     {supplier.companyName?.trim().slice(0, 2)}
                                 </span>
 
                             </div>
 
-                            <h3 className="mt-5 text-xl font-bold text-black">
+                            <h3 className="mt-5 text-xl font-bold text-text-primary">
                                 {supplier.companyName}
                             </h3>
 
-                            <div className="w-full border-b border-black my-5" />
+                            <div className="w-full border-b border-border-strong my-5" />
 
                             <div className="flex items-center gap-3">
 
-                                <span className="font-semibold text-black">
+                                <span className="font-semibold text-text-primary">
                                     Estado
                                 </span>
 
@@ -153,7 +153,7 @@ export default function ReadSupplier() {
 
                         <div className="flex flex-col gap-6">
 
-                            <div className="bg-white rounded-2xl shadow-md p-8 text-black">
+                            <div className="bg-panel rounded-2xl shadow-md p-8 text-text-primary">
 
                                 <DetailItem
                                     label="Tipo de documento"
@@ -187,7 +187,7 @@ export default function ReadSupplier() {
 
                             </div>
 
-                            <div className="bg-white rounded-2xl shadow-md p-6 text-black">
+                            <div className="bg-panel rounded-2xl shadow-md p-6 text-text-primary">
 
                                 <h3 className="text-center text-2xl font-medium mb-6">
                                     Productos que suministra
@@ -199,7 +199,7 @@ export default function ReadSupplier() {
                                         supplier.productTypes.map((product, index) => (
                                             <span
                                                 key={index}
-                                                className="px-6 py-2 rounded-full bg-yellow-100 border border-gray-600 text-sm font-medium"
+                                                className="px-6 py-2 rounded-full bg-warning-soft border border-border-strong text-sm font-medium"
                                             >
                                                 {typeof product === "string"
                                                     ? product
@@ -207,7 +207,7 @@ export default function ReadSupplier() {
                                             </span>
                                         ))
                                     ) : (
-                                        <span className="text-gray-500">
+                                        <span className="text-text-muted">
                                             No hay productos registrados.
                                         </span>
                                     )}

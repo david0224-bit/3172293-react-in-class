@@ -44,7 +44,7 @@ export const productColumns = [
           className="h-10 w-10 rounded object-contain"
         />
       ) : (
-        <span className="text-sm text-gray-500">Sin imagen</span>
+        <span className="text-sm text-text-muted">Sin imagen</span>
       );
     },
   },

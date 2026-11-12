@@ -58,7 +58,7 @@ export default function ReportConfigModal({
 
   return createPortal(
     <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="w-full max-w-md rounded-[26px] bg-white px-6 py-6 shadow-2xl">
+      <div className="w-full max-w-md rounded-[26px] bg-panel px-6 py-6 shadow-2xl">
         <h2 className="mb-6 text-xl font-semibold">
           Generar reporte de usuarios
         </h2>
