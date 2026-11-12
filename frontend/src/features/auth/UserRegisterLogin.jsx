@@ -120,7 +120,7 @@ export default function UserRegisterForm() {
   // ========================================================
 
   return (
-    <div className="grid items-center justify-center bg-[var(--color-primary-100)] border border-[var(--color-primary-800)] rounded p-16">
+    <div className="grid items-center justify-center bg-accent-soft border border-brand rounded p-16">
 
       {/* Título */}
       <h1 className="mx-auto my-2 text-title font-bold">
@@ -130,7 +130,7 @@ export default function UserRegisterForm() {
       {/* Imagen */}
       <div className="flex justify-center">
         <img
-          className="flex w-16 h-16 align-center justify-center"
+          className="flex w-16 h-16 align-center justify-center dark:invert"
           src={loginIcon}
           alt="Imagen"
         />
@@ -183,7 +183,7 @@ export default function UserRegisterForm() {
             <Link to="/recover-password">
             <button
               type="button"
-              className="text-sm text-[var(--color-primary-950)] hover:underline"
+              className="text-sm text-accent hover:underline"
             >
               ¿Olvidaste tu contraseña?
             </button>
@@ -195,7 +195,7 @@ export default function UserRegisterForm() {
           <Link to="/CreateUserLogin">
           <button
             type="button"
-            className="text-sm text-[var(--color-primary-950)] hover:underline mb-4"
+            className="text-sm text-accent hover:underline mb-4"
           >
             ¿No tienes cuenta?
           </button>
