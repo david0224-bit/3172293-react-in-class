@@ -11,11 +11,11 @@ export default function Input({
         // Estos valroes deben ser cin variables
         primary: `
             border-brand
-            bg-gray-100
+            bg-field
         `,
         secondary: `
             border-red-950
-            bg-gray-300
+            bg-subtle
         `,
         tertiary: `
             border-green-950
@@ -44,7 +44,7 @@ export default function Input({
                 className={`
                     block
                     text-caption
-                    text-secondary
+                    text-text-secondary
                     ${
                       size === "sm"
                         ? "-mb-2"
@@ -97,6 +97,8 @@ export default function Input({
                     border
                     px-4
                     text-body
+                    text-text-primary
+                    placeholder:text-text-muted
 
                     focus:outline-none
                     focus:ring-2

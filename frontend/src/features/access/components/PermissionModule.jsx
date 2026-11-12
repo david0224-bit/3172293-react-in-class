@@ -50,7 +50,7 @@ export default function PermissionModule({
         <section className="border rounded-lg p-6">
             <div className="flex items-center justify-between mb-6">
                 <div>
-                    <p className="text-sm text-neutral-500">Grupo</p>
+                    <p className="text-sm text-text-muted">Grupo</p>
                     <h2 className="text-lg font-semibold">
                         {selectedGroupName || "Seleccione un grupo"}
                     </h2>

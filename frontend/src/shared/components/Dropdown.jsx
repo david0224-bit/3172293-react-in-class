@@ -91,9 +91,10 @@ export function DropdownContent({ children, className = "" }) {
         mt-1
         min-w-48
         border
-        text-text-inverse
+        text-text-primary
+        bg-panel/95
+        border-border
         p-1
-        dark:bg-neutral-950/80
         backdrop-blur-[1px]
         shadow-lg
         rounded-2xl
@@ -127,7 +128,7 @@ export function DropdownItem({
       onClick={handleClick}
       className={`
         w-full text-left px-3 py-2 rounded-lg
-        hover:bg-gray-500 focus:bg-gray-100
+        hover:bg-surface-hover focus:bg-surface-hover
         transition-colors
         ${className}
       `}

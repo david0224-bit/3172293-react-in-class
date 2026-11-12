@@ -9,7 +9,7 @@ const Card = ({ product }) => {
         <div className="
           w-80
           text-text-primary
-          dark:bg-neutral-950/70
+          bg-panel/70
           backdrop-blur-[2px]
           shadow-lg
           rounded-2xl
@@ -37,7 +37,7 @@ const Card = ({ product }) => {
                 </p>
                 )}
 
-                <p className="text-lg font-bold text-cyan-200">
+                <p className="text-lg font-bold text-accent">
                     {displayPrice?.toLocaleString()}
                 </p>
             </div>

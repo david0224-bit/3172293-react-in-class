@@ -77,7 +77,7 @@ export default function DataTable({ data, columns }) {
           placeholder="Buscar..."
           value={globalFilter ?? ""}
           onChange={(e) => setGlobalFilter(e.target.value)}
-          className="border border-black rounded px-3 py-2 w-64 bg-white text-black placeholder:text-black"
+          className="border border-border-strong rounded px-3 py-2 w-64 bg-panel text-text-primary placeholder:text-text-muted"
         />
 
         {/* ================== SELECTOR DE FILAS ================== */}
@@ -85,7 +85,7 @@ export default function DataTable({ data, columns }) {
         <select
           value={table.getState().pagination.pageSize}
           onChange={(e) => table.setPageSize(Number(e.target.value))}
-          className="border border-black rounded px-2 py-2 bg-white text-black"
+          className="border border-border-strong rounded px-2 py-2 bg-panel text-text-primary"
         >
           {[5, 7, 10, 20, 50].map(size => (
             <option key={size} value={size}>
@@ -97,11 +97,11 @@ export default function DataTable({ data, columns }) {
       </div>
 
       {/* ================== TABLA ================== */}
-      <div className="overflow-x-auto border border-black rounded bg-white">
-        <table className="w-full bg-white text-black">
+      <div className="overflow-x-auto border border-border-strong rounded bg-panel">
+        <table className="w-full bg-panel text-text-primary">
 
           {/* ================== CABECERA ================== */}
-          <thead className="bg-gray-100 text-black">
+          <thead className="bg-field text-text-primary">
 
             {/* TanStack agrupa cabeceras automáticamente */}
             {table.getHeaderGroups().map(headerGroup => (
@@ -112,7 +112,7 @@ export default function DataTable({ data, columns }) {
 
                   <th
                     key={header.id}
-                    className="p-3 text-left border-b border-black text-black"
+                    className="p-3 text-left border-b border-border-strong text-text-primary"
                   >
 
                     {/* 
@@ -137,19 +137,19 @@ export default function DataTable({ data, columns }) {
           </thead>
 
           {/* ================== CUERPO DE LA TABLA ================== */}
-          <tbody className="bg-white text-black">
+          <tbody className="bg-panel text-text-primary">
 
             {/* Filas generadas por TanStack */}
             {table.getRowModel().rows.map(row => (
 
-              <tr key={row.id} className="hover:bg-gray-50 text-black">
+              <tr key={row.id} className="hover:bg-surface-hover text-text-primary">
 
                 {/* Celdas visibles de cada fila */}
                 {row.getVisibleCells().map(cell => (
 
                   <td
                     key={cell.id}
-                    className="p-3 border-b border-black text-black"
+                    className="p-3 border-b border-border-strong text-text-primary"
                   >
 
                     {/* Render dinámico del contenido de la celda */}
@@ -176,7 +176,7 @@ export default function DataTable({ data, columns }) {
 
         {/* ================== INFORMACIÓN ================== */}
         {/* Cantidad de registros visibles */}
-        <span className="text-sm text-gray-600">
+        <span className="text-sm text-text-secondary">
           Mostrando {table.getRowModel().rows.length} de{" "}
           {table.getFilteredRowModel().rows.length} registros
         </span>
@@ -205,7 +205,7 @@ export default function DataTable({ data, columns }) {
           </Button>
 
           {/* Información de página actual */}
-          <span className="text-sm px-2 text-black">
+          <span className="text-sm px-2 text-text-primary">
             Página {table.getState().pagination.pageIndex + 1} de{" "}
             {table.getPageCount()}
           </span>
@@ -234,7 +234,7 @@ export default function DataTable({ data, columns }) {
 
       {/* ================== IR A PÁGINA ================== */}
       {/* Permite navegar directamente a una página específica */}
-      <div className="flex items-center gap-2 text-sm text-black">
+      <div className="flex items-center gap-2 text-sm text-text-primary">
 
         <span>Ir a página:</span>
 
@@ -253,7 +253,7 @@ export default function DataTable({ data, columns }) {
             table.setPageIndex(page)
           }}
 
-          className="border border-black rounded px-2 py-1 w-16 bg-white text-black"
+          className="border border-border-strong rounded px-2 py-1 w-16 bg-panel text-text-primary"
         />
 
       </div>

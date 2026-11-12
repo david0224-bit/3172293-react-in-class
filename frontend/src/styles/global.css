@@ -13,12 +13,29 @@
     --color-brand-soft: var(--semantic-brand-soft);
     --color-brand-soft-hover: var(--semantic-brand-soft-hover);
 
+    /* ========Accent========= */
+
+    --color-accent: var(--semantic-accent);
+    --color-accent-hover: var(--semantic-accent-hover);
+    --color-accent-soft: var(--semantic-accent-soft);
+    --color-on-accent: var(--semantic-on-accent);
+
     /* ========Background========= */
 
     --color-background: var(--semantic-background);
     --color-surface: var(--semantic-surface);
+    --color-surface-alt: var(--semantic-surface-alt);
     --color-surface-muted: var(--semantic-surface-muted);
+    --color-surface-hover: var(--semantic-surface-hover);
     --color-background-inverse: var(--semantic-background-inverse);
+    --color-panel: var(--semantic-panel);
+    --color-field: var(--semantic-field);
+    --color-subtle: var(--semantic-subtle);
+    --color-navbar: var(--semantic-navbar);
+    --color-form-from: var(--semantic-form-from);
+    --color-form-to: var(--semantic-form-to);
+    --color-scrim: var(--semantic-scrim);
+    --color-scrim-soft: var(--semantic-scrim-soft);
 
     /* ========Text========= */
 
@@ -36,13 +53,13 @@
 
     --color-focus-ring: var(--semantic-focus-ring);
     --color-focus-border: var(--semantic-focus-border);
-    --color-focus-border: var(--semantic-focus-border);
 
     /* ========State========= */
 
     --color-success: var(--semantic-success);
     --color-warning: var(--semantic-warning);
     --color-error: var(--semantic-error);
+    --color-warning-soft: var(--semantic-warning-soft);
 
     /* ========Typography========= */
 
@@ -73,3 +90,16 @@
     }
 }
 
+    /*============== Tema base (claro / oscuro) ================*/
+    @layer base {
+        body {
+            background-color: var(--semantic-background);
+            color: var(--semantic-text-primary);
+        }
+    }
+
+    /* Alertas de SweetAlert2 con los tokens del tema */
+    .swal2-popup {
+        background: var(--semantic-panel);
+        color: var(--semantic-text-primary);
+    }

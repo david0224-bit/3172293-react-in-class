@@ -58,7 +58,7 @@ export default function UserRowActions({ user }) {
       {/* Editar */}
       <button
         onClick={handleEdit}
-        className="p-1 rounded hover:bg-gray-100"
+        className="p-1 rounded hover:bg-surface-hover"
       >
         <Pencil size={16} />
       </button>
@@ -66,7 +66,7 @@ export default function UserRowActions({ user }) {
       {/* Eliminar */}
       <button
         onClick={handleDelete}
-        className="p-1 rounded hover:bg-gray-100"
+        className="p-1 rounded hover:bg-surface-hover"
       >
         <Trash2 size={16} />
       </button>
@@ -74,7 +74,7 @@ export default function UserRowActions({ user }) {
       {/* Ver */}
       <button
         onClick={handleView}
-        className="p-1 rounded hover:bg-gray-100"
+        className="p-1 rounded hover:bg-surface-hover"
       >
         <Eye size={16} />
       </button>

@@ -77,7 +77,7 @@ export default function FileInput({
           {isImage(file) ? (
             <img src={previews[i]} className="w-full h-full object-cover" />
           ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center bg-gray-100 text-[10px] px-1">
+            <div className="w-full h-full flex flex-col items-center justify-center bg-field text-[10px] px-1">
               <span className="font-semibold">PDF</span>
               <span className="truncate w-full text-center">{file.name}</span>
             </div>
@@ -85,12 +85,12 @@ export default function FileInput({
 
           {/* Acciones hover: reorder visual + eliminar */}
           <div className="absolute top-1 right-1 flex flex-col gap-1 opacity-0 group-hover:opacity-100">
-            <button className="w-7 h-7 bg-white rounded-full text-black text-xs">
+            <button className="w-7 h-7 bg-panel rounded-full text-text-primary text-xs">
               ↕
             </button>
             <button
               onClick={() => remove(i)}
-              className="w-7 h-7 bg-white rounded-full text-black text-xs"
+              className="w-7 h-7 bg-panel rounded-full text-text-primary text-xs"
             >
               ✕
             </button>

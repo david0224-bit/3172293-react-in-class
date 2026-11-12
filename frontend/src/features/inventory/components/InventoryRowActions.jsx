@@ -50,7 +50,7 @@ export default function InventoryRowActions({ item }) {
     <div className="flex gap-2">
       <button
         onClick={handleRead}
-        className="p-1 rounded hover:bg-gray-100"
+        className="p-1 rounded hover:bg-surface-hover"
       >
         <Eye size={16} />
       </button>
@@ -64,7 +64,7 @@ export default function InventoryRowActions({ item }) {
 
       <button
         onClick={handleDelete}
-        className="p-1 rounded hover:bg-gray-100"
+        className="p-1 rounded hover:bg-surface-hover"
       >
         <Trash2 size={16} />
       </button>

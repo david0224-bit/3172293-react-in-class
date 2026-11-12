@@ -9,25 +9,48 @@
     --semantic-brand-soft: var(--color-primary-200);
     --semantic-brand-soft-hover: var(--color-primary-300);
 
+    /* ========Accent (color de marca intenso)========= */
+
+    --semantic-accent: var(--color-primary-950); /*Bordes, títulos y botones destacados*/
+    --semantic-accent-hover: var(--color-primary-900);
+    --semantic-accent-soft: var(--color-primary-100); /*Fondos suaves con tinte de marca*/
+    --semantic-on-accent: var(--white); /*Texto sobre fondos de marca*/
+
     /* ================Background=============== */
 
-    --semantic-background: var(--color-white); /*Fondo de toda la aplicación*/
-    --semantic-surface: var(--color-gray-200); /*Fondo de modales, cards y containers*/
+    --semantic-background: var(--white); /*Fondo de toda la aplicación*/
+    --semantic-surface: var(--gray-200); /*Fondo de modales, cards y containers*/
     --semantic-surface-alt: var(--color-primary-950); /*Superficie de acento con el color de marca*/
-    --semantic-surface-muted: var(--color-gray-400); /*Zonas secundarias, con menos importancia*/
-    --semantic-background-inverse: var(--color-gray-800);
+    --semantic-surface-muted: var(--gray-400); /*Zonas secundarias, con menos importancia*/
+    --semantic-background-inverse: var(--gray-800);
+
+    --semantic-panel: var(--white); /*Paneles de listados, tablas y tarjetas de detalle*/
+    --semantic-field: var(--gray-25); /*Fondo de inputs y selects*/
+    --semantic-subtle: var(--gray-50); /*Rellenos neutros (placeholders de imagen, switches apagados)*/
+    --semantic-surface-hover: var(--gray-25); /*Hover de filas, ítems y botones fantasma*/
+    --semantic-navbar: rgb(255 255 255 / 0.7); /*Fondo de la barra de navegación*/
+
+    /* ========Formularios (panel con degradado)========= */
+
+    --semantic-form-from: var(--color-primary-800);
+    --semantic-form-to: var(--color-primary-200);
+
+    /* ========Capas sobre imágenes de fondo========= */
+
+    --semantic-scrim: transparent; /*Capa sobre el fondo del dashboard*/
+    --semantic-scrim-soft: rgb(255 255 255 / 0.6); /*Capa sobre el fondo del home*/
 
     /* ========Text========= */
 
-    --semantic-text-primary: var(--color-gray-900); /*Color principal de lectura, titulos, texto base del documento */
-    --semantic-text-secondary: var(--color-gray-700); /*Textos menos dominantes*/
-    --semantic-text-muted: var(--color-gray-500); /*Texto deshabilitado por ejemplo*/
-    --semantic-text-inverse: var(--color-white); /*Texto invertido*/
+    --semantic-text-primary: var(--gray-900); /*Color principal de lectura, titulos, texto base del documento */
+    --semantic-text-secondary: var(--gray-700); /*Textos menos dominantes*/
+    --semantic-text-muted: var(--gray-500); /*Texto deshabilitado por ejemplo*/
+    --semantic-text-inverse: var(--white); /*Texto invertido*/
 
     /* ========Border========= */
 
-    --semantic-border: var(--color-gray-400); /*Borde principal de todos los componentes*/
-    --semantic-border-strong: var(--color-gray-700); /*Bordes mas fuertes*/
+    --semantic-border: var(--gray-400); /*Borde principal de todos los componentes*/
+    --semantic-border-strong: var(--gray-700); /*Bordes mas fuertes*/
 
     /* ========Focus========= */
 
@@ -39,6 +62,7 @@
     --semantic-success: var(--color-primary-950);
     --semantic-warning: var(--color-tertiary-950);
     --semantic-error: var(--color-secondary-950);
+    --semantic-warning-soft: var(--yellow-soft); /*Etiquetas y chips informativos*/
 
     /* ========Typography========= */
 
@@ -65,7 +89,8 @@
 }
 
 /* ================Dark theme================== */
-/* Se activa con la clase .dark en <html> (ThemeProvider). Conserva la paleta verde de la marca. */
+/* Se activa con la clase .dark en <html> (ThemeProvider).
+   Solo se redefinen los tokens semánticos: los componentes no cambian. */
 
 .dark {
     color-scheme: dark;
@@ -74,28 +99,51 @@
 
     --semantic-brand: var(--color-primary-800);
     --semantic-brand-hover: var(--color-primary-600);
-    --semantic-brand-soft: #2f4a1c;
-    --semantic-brand-soft-hover: #3d5f26;
+    --semantic-brand-soft: var(--color-primary-dark-800);
+    --semantic-brand-soft-hover: var(--color-primary-dark-700);
+
+    /* ========Accent========= */
+
+    --semantic-accent: var(--color-primary-800);
+    --semantic-accent-hover: var(--color-primary-700);
+    --semantic-accent-soft: var(--color-primary-dark-800);
+    --semantic-on-accent: var(--white);
 
     /* ================Background=============== */
 
-    --semantic-background: #111827;
-    --semantic-surface: #1f2937;
-    --semantic-surface-alt: #1c2618;
-    --semantic-surface-muted: #374151;
-    --semantic-background-inverse: #f3f4f6;
+    --semantic-background: var(--dark-900);
+    --semantic-surface: var(--dark-800);
+    --semantic-surface-alt: var(--color-primary-dark-900);
+    --semantic-surface-muted: var(--dark-700);
+    --semantic-background-inverse: var(--dark-100);
+
+    --semantic-panel: var(--dark-800);
+    --semantic-field: var(--dark-700);
+    --semantic-subtle: var(--dark-600);
+    --semantic-surface-hover: var(--dark-700);
+    --semantic-navbar: var(--dark-950);
+
+    /* ========Formularios========= */
+
+    --semantic-form-from: var(--color-primary-dark-800);
+    --semantic-form-to: var(--color-primary-dark-900);
+
+    /* ========Capas sobre imágenes de fondo========= */
+
+    --semantic-scrim: rgb(11 15 23 / 0.82);
+    --semantic-scrim-soft: rgb(11 15 23 / 0.88);
 
     /* ========Text========= */
 
-    --semantic-text-primary: #f9fafb;
-    --semantic-text-secondary: #e5e7eb;
-    --semantic-text-muted: #9ca3af;
-    --semantic-text-inverse: #111827;
+    --semantic-text-primary: var(--dark-50);
+    --semantic-text-secondary: var(--dark-100);
+    --semantic-text-muted: var(--dark-300);
+    --semantic-text-inverse: var(--dark-900);
 
     /* ========Border========= */
 
-    --semantic-border: #4b5563;
-    --semantic-border-strong: #6b7280;
+    --semantic-border: var(--dark-600);
+    --semantic-border-strong: var(--dark-500);
 
     /* ========Focus========= */
 
@@ -107,4 +155,5 @@
     --semantic-success: #86efac;
     --semantic-warning: #fde047;
     --semantic-error: #fca5a5;
+    --semantic-warning-soft: var(--yellow-deep);
 }
