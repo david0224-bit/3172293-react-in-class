@@ -121,7 +121,7 @@ export default function CreateProductInventory() {
       <Navbar />
 
       <div className="flex-1 px-3 py-4 sm:px-6 sm:py-8 flex items-center justify-center w-full max-w-full box-border">
-        <div className="w-full max-w-6xl bg-gradient-to-b from-[var(--color-primary-800)] to-[var(--color-primary-200)] rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-md min-w-0 box-border overflow-hidden">
+        <div className="w-full max-w-6xl bg-gradient-to-b from-form-from to-form-to rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-md min-w-0 box-border overflow-hidden">
           <div>
             <Button
               variant="back"
@@ -134,11 +134,11 @@ export default function CreateProductInventory() {
           </div>
 
           <div>
-            <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-4 border-b border-[var(--color-primary-950)]/30 pb-4 mb-6">
+            <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-4 border-b border-accent/30 pb-4 mb-6">
               <div className="flex items-center gap-2">
                 <span className="text-2xl">🍝</span>
 
-                <h2 className="text-[var(--color-text-inverse)] font-bold text-lg sm:text-xl uppercase tracking-wider">
+                <h2 className="text-on-accent font-bold text-lg sm:text-xl uppercase tracking-wider">
                   Agregar Platillo / Menu
                 </h2>
               </div>
@@ -253,9 +253,9 @@ export default function CreateProductInventory() {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-[var(--color-primary-950)]/20 flex flex-col lg:flex-row justify-between items-start gap-6 w-full min-w-0">
+            <div className="pt-6 border-t border-accent/20 flex flex-col lg:flex-row justify-between items-start gap-6 w-full min-w-0">
               <div className="space-y-3 w-full lg:w-auto min-w-0">
-                <span className="font-semibold text-gray-700 text-sm block">
+                <span className="font-semibold text-text-secondary text-sm block">
                   Características (opcional)
                 </span>
 
