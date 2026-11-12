@@ -13,7 +13,7 @@ export default function HomePage(){
             <Navbar/>
             <section
                 /* Se cambia 'min-h-screen' por 'flex-1' para acoplarse al alto exacto que deja la Navbar */
-                className="relative flex-1 w-full flex items-center justify-center text-black"
+                className="relative flex-1 w-full flex items-center justify-center text-text-primary"
 
                 style={{
                     backgroundImage: `url(${heroBg})`,
@@ -21,7 +21,7 @@ export default function HomePage(){
                     backgroundPosition: "center",
                 }}
             >
-                <div className="absolute inset-0 bg-white/60" />
+                <div className="absolute inset-0 bg-scrim-soft" />
 
                 <div className="z-10 text-center">
                     <h1 className="mb-6 text-h1 font-heading "> Mis Productos</h1>

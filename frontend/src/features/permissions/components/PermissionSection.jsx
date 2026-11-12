@@ -4,7 +4,7 @@ export default function PermissionSection({ module, permissions, onPermissionCha
   return (
     <div className="space-y-3">
       {/* Cabecera ícono */}
-      <div className="flex items-center gap-2 text-[var(--color-primary-950)] font-bold text-base">
+      <div className="flex items-center gap-2 text-accent font-bold text-base">
         <span>{module.icon}</span>
         <h3>{module.title}</h3>
       </div>

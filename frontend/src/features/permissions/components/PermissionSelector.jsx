@@ -10,9 +10,9 @@ export default function PermissionSelector({
   error,
 }) {
   return (
-    <aside className="bg-white rounded-xl p-6 shadow-sm border border-[var(--color-gray-100)] space-y-8">
+    <aside className="bg-panel rounded-xl p-6 shadow-sm border border-border space-y-8">
       <div className="space-y-3">
-        <h2 className="text-[var(--color-gray-900)] font-bold text-base border-b-2 border-black pb-1 inline-block">
+        <h2 className="text-text-primary font-bold text-base border-b-2 border-border-strong pb-1 inline-block">
           Grupos usuarios
         </h2>
         <Select
@@ -24,10 +24,10 @@ export default function PermissionSelector({
         />
       </div>
 
-      <hr className="border-t border-[var(--color-gray-100)]" />
+      <hr className="border-t border-border" />
 
       <div className="space-y-3">
-        <h2 className="text-[var(--color-gray-900)] font-bold text-base border-b-2 border-black pb-1 inline-block">
+        <h2 className="text-text-primary font-bold text-base border-b-2 border-border-strong pb-1 inline-block">
           Usuario individual
         </h2>
         <Select
@@ -40,7 +40,7 @@ export default function PermissionSelector({
       </div>
 
       {error && (
-        <p className="text-xs text-[var(--color-secondary-950)] font-medium">
+        <p className="text-xs text-red-600 font-medium">
           {error}
         </p>
       )}

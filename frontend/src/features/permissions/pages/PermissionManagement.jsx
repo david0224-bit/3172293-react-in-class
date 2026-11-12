@@ -83,7 +83,7 @@ export default function PermissionManagement() {
     <div className="flex-1 p-6 max-w-7xl mx-auto w-full space-y-6">
       
       {/* Encabezado */}
-        <div className="flex items-center justify-between border-b-4 border-[var(--color-primary-950)] pb-4">
+        <div className="flex items-center justify-between border-b-4 border-accent pb-4">
           <Button
             variant="secondary"
             type="button"
@@ -92,7 +92,7 @@ export default function PermissionManagement() {
             ← Atrás
           </Button>
 
-          <h1 className="text-[var(--color-primary-950)] font-bold text-xl uppercase tracking-wider">
+          <h1 className="text-accent font-bold text-xl uppercase tracking-wider">
           ⚙️ Gestión de permisos
           </h1>
 
@@ -114,7 +114,7 @@ export default function PermissionManagement() {
             />
           </div>
 
-          <div className="lg:col-span-8 bg-white rounded-2xl p-6 border border-gray-200 space-y-6 shadow-sm">
+          <div className="lg:col-span-8 bg-panel rounded-2xl p-6 border border-border space-y-6 shadow-sm">
             {PERMISSION_MODULES.map((module, idx) => (
               <div key={module.id} className="space-y-4">
                 <PermissionSection
@@ -123,12 +123,12 @@ export default function PermissionManagement() {
                   onPermissionChange={handlePermissionChange}
                 />
                 {idx < PERMISSION_MODULES.length - 1 && (
-                  <hr className="border-gray-200" />
+                  <hr className="border-border" />
                 )}
               </div>
             ))}
 
-            <div className="pt-4 border-t border-gray-200 flex justify-end gap-4">
+            <div className="pt-4 border-t border-border flex justify-end gap-4">
               <Button
                 variant="secondary"
                 size="md"
